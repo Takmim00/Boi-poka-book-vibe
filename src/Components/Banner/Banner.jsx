@@ -9,7 +9,7 @@ const Banner = () => {
           src={bannerImg}
           className="max-w-sm rounded-lg shadow-2xl"
         />
-        <div>
+        <div className="items-center">
           <h1 className="text-6xl font-bold w-2/3 mb-4 ">Books to freshen up your bookshelf</h1>
           
           <button className="btn bg-green-600 text-white font-bold text-xl">View The List</button>
