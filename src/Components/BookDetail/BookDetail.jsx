@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
-import { addToStoredWishList, addTOStoreReadList } from "../../utility/addToDb";
+import { addToStoredReadList, addToStoredWishList } from "../../utility/addToDb";
 
 const BookDetail = () => {
   const { bookId } = useParams();
@@ -19,12 +19,29 @@ const BookDetail = () => {
     review,
   } = book;
 
-  const handleReadList = (id) => {
-    addTOStoreReadList(id);
-  };
-  const handleWishList =(id)=>{
-    addToStoredWishList
-  }
+
+  const handleMarkAsRead = (id) =>{
+    /**
+     * 1. understand what to store or save: => bookId
+     * 2. Where to store: database
+     * 3. array, list, collection: 
+     * 4. check: if the book is already in the readList. 
+     * 5. if not, then add the book to the list
+     * 6. if yes, do not add the book 
+    */
+
+    addToStoredReadList(id);
+}
+
+const handleAddToWishList = (id) =>{
+    addToStoredWishList(id);
+}
+  // const handleReadList = (id) => {
+  //   addTOStoreReadList(id);
+  // };
+  // const handleWishList =(id)=>{
+  //   addToStoredWishList(id)
+  // }
 
   return (
     <div class="  ">
@@ -91,13 +108,13 @@ const BookDetail = () => {
 
           <div className="flex gap-6">
             <button
-              onClick={() => handleReadList(bookId)}
+              onClick={() => handleMarkAsRead(bookId)}
               className="btn btn-outline btn-accent"
             >
               Read
             </button>
             <button 
-            onClick={()=>handleWishList(bookId)}
+            onClick={()=>handleAddToWishList(bookId)}
             className="btn btn-accent">Wishlist</button>
           </div>
         </div>
