@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { addTOStoreReadList } from "../../utility/addToDb";
 
 const BookDetail = () => {
   const { bookId } = useParams();
@@ -17,6 +18,10 @@ const BookDetail = () => {
     category,
     review,
   } = book;
+
+  const handleReadList = (id) => {
+    addTOStoreReadList(id);
+  };
 
   return (
     <div class="  ">
@@ -77,15 +82,19 @@ const BookDetail = () => {
                 className="mask mask-star-2 bg-green-100"
               />
             </div>
-          <hr className="border border-dashed" />
-
+            <hr className="border border-dashed" />
           </div>
           <hr className="border border-dashed" />
 
-        <div className="flex gap-6">
-            <button className="btn btn-outline btn-accent">Read</button>
+          <div className="flex gap-6">
+            <button
+              onClick={() => handleReadList(bookId)}
+              className="btn btn-outline btn-accent"
+            >
+              Read
+            </button>
             <button className="btn btn-accent">Wishlist</button>
-        </div>
+          </div>
         </div>
       </div>
     </div>
