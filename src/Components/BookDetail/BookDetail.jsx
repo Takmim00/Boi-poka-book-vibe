@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
-import { addTOStoreReadList } from "../../utility/addToDb";
+import { addToStoredWishList, addTOStoreReadList } from "../../utility/addToDb";
 
 const BookDetail = () => {
   const { bookId } = useParams();
@@ -22,6 +22,9 @@ const BookDetail = () => {
   const handleReadList = (id) => {
     addTOStoreReadList(id);
   };
+  const handleWishList =(id)=>{
+    addToStoredWishList
+  }
 
   return (
     <div class="  ">
@@ -93,7 +96,9 @@ const BookDetail = () => {
             >
               Read
             </button>
-            <button className="btn btn-accent">Wishlist</button>
+            <button 
+            onClick={()=>handleWishList(bookId)}
+            className="btn btn-accent">Wishlist</button>
           </div>
         </div>
       </div>

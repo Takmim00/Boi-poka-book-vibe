@@ -22,12 +22,13 @@ const router = createBrowserRouter([
       {
         path: 'book/:bookId',
         element:<BookDetail></BookDetail>,
-        loader:()=>fetch('/booksData.json')
-        
+        loader:()=>fetch('/booksData.json') //do not load all the books for one book       
       },
       {
         path : 'listedBooks',
-        element: <ListedBooks></ListedBooks>
+        element: <ListedBooks></ListedBooks>,
+        //worst way to load some data
+        loader: ()=> fetch('/booksData.json') //do not load all data
 
       },
       {
