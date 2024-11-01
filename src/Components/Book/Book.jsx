@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Book = ({ book }) => {
-  const { bookId,bookName, author, image, tags, category } = book;
+  const { bookId,bookName, author, image, tags, category ,rating, totalPages} = book;
   return (
     <Link to={`/book/${bookId}`}>
       <div className="card bg-base-100 border-2 ">
@@ -26,7 +26,8 @@ const Book = ({ book }) => {
           <hr className="border border-dashed" />
           <div className="card-actions justify-between">
             <div className="font-medium text-gray-500">{category}</div>
-
+            <div>{rating}</div>
+            <div>{totalPages}</div>
             <div className="rating">
               <input
                 type="radio"
